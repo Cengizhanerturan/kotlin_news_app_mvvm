@@ -96,15 +96,15 @@ ile yazılmış bir mobil uygulamadır. Uygulama, kullanıcı deneyimini ve etki
 <a><img src="https://github.com/Cengizhanerturan/kotlin_news_app_mvvm/blob/main/app/src/main/github-images/light/auth-1.png" alt="Giriş ve Kayıt" style="max-width: 100%;" /></a>
 <a><img src="https://github.com/Cengizhanerturan/kotlin_news_app_mvvm/blob/main/app/src/main/github-images/light/auth-2.png" alt="Giriş ve Kayıt" style="max-width: 100%;" /></a>
 
-### 2. Anasayfa, Keşfet, Kaydedilen Haberler ve Ayarlar Ekranları
+### 2. Anasayfa, Keşfet, Kaydedilen Haberler ve Arama Ekranları
 
-<a><img src="https://github.com/Cengizhanerturan/kotlin_news_app_mvvm/blob/main/app/src/main/github-images/light/home.png" alt="Anasayfa, Keşfet, Kaydedilen Haberler ve Ayarlar" style="max-width: 100%;" /></a>
+<a><img src="https://github.com/Cengizhanerturan/kotlin_news_app_mvvm/blob/main/app/src/main/github-images/light/home.png" alt="Anasayfa, Keşfet, Kaydedilen Haberler ve Arama" style="max-width: 100%;" /></a>
 
 ### 3. Haber Detay Ekranı
 
 <a><img src="https://github.com/Cengizhanerturan/kotlin_news_app_mvvm/blob/main/app/src/main/github-images/light/details.png" alt="Haber Detay" style="max-width: 100%;" /></a>
 
-### 4. Ayar Ekranları
+### 4. Ayarlar Ekranı
 
 <a><img src="https://github.com/Cengizhanerturan/kotlin_news_app_mvvm/blob/main/app/src/main/github-images/light/settings.png" alt="Ayarlar" style="max-width: 100%;" /></a>
 
@@ -115,15 +115,15 @@ ile yazılmış bir mobil uygulamadır. Uygulama, kullanıcı deneyimini ve etki
 <a><img src="https://github.com/Cengizhanerturan/kotlin_news_app_mvvm/blob/main/app/src/main/github-images/dark/auth-1.png" alt="Giriş ve Kayıt" style="max-width: 100%;" /></a>
 <a><img src="https://github.com/Cengizhanerturan/kotlin_news_app_mvvm/blob/main/app/src/main/github-images/dark/auth-2.png" alt="Giriş ve Kayıt" style="max-width: 100%;" /></a>
 
-### 2. Anasayfa, Keşfet, Kaydedilen Haberler ve Ayarlar Ekranları
+### 2. Anasayfa, Keşfet, Kaydedilen Haberler ve Arama Ekranları
 
-<a><img src="https://github.com/Cengizhanerturan/kotlin_news_app_mvvm/blob/main/app/src/main/github-images/dark/home.png" alt="Anasayfa, Keşfet, Kaydedilen Haberler ve Ayarlar" style="max-width: 100%;" /></a>
+<a><img src="https://github.com/Cengizhanerturan/kotlin_news_app_mvvm/blob/main/app/src/main/github-images/dark/home.png" alt="Anasayfa, Keşfet, Kaydedilen Haberler ve Arama" style="max-width: 100%;" /></a>
 
 ### 3. Haber Detay Ekranı
 
 <a><img src="https://github.com/Cengizhanerturan/kotlin_news_app_mvvm/blob/main/app/src/main/github-images/dark/details.png" alt="Haber Detay" style="max-width: 100%;" /></a>
 
-### 4. Ayar Ekranları
+### 4. Ayarlar Ekranı
 
 <a><img src="https://github.com/Cengizhanerturan/kotlin_news_app_mvvm/blob/main/app/src/main/github-images/dark/settings.png" alt="Ayarlar" style="max-width: 100%;" /></a>
 
@@ -224,9 +224,9 @@ key features of the app:
 <a><img src="https://github.com/Cengizhanerturan/kotlin_news_app_mvvm/blob/main/app/src/main/github-images/light/auth-1.png" alt="Login and Sign-up" style="max-width: 100%;" /></a>
 <a><img src="https://github.com/Cengizhanerturan/kotlin_news_app_mvvm/blob/main/app/src/main/github-images/light/auth-2.png" alt="Login and Sign-up" style="max-width: 100%;" /></a>
 
-### 2. Home, Discover, Saved News, and Settings Screens
+### 2. Home, Discover, Saved News and Search Screens
 
-<a><img src="https://github.com/Cengizhanerturan/kotlin_news_app_mvvm/blob/main/app/src/main/github-images/light/home.png" alt="Home, Discover, Saved News, and Settings" style="max-width: 100%;" /></a>
+<a><img src="https://github.com/Cengizhanerturan/kotlin_news_app_mvvm/blob/main/app/src/main/github-images/light/home.png" alt="Home, Discover, Saved News and Search" style="max-width: 100%;" /></a>
 
 ### 3. News Detail Screen
 
@@ -243,9 +243,9 @@ key features of the app:
 <a><img src="https://github.com/Cengizhanerturan/kotlin_news_app_mvvm/blob/main/app/src/main/github-images/dark/auth-1.png" alt="Login and Sign-up" style="max-width: 100%;" /></a>
 <a><img src="https://github.com/Cengizhanerturan/kotlin_news_app_mvvm/blob/main/app/src/main/github-images/dark/auth-2.png" alt="Login and Sign-up" style="max-width: 100%;" /></a>
 
-### 2. Home, Discover, Saved News, and Settings Screens
+### 2. Home, Discover, Saved News and Search Screens
 
-<a><img src="https://github.com/Cengizhanerturan/kotlin_news_app_mvvm/blob/main/app/src/main/github-images/dark/home.png" alt="Home, Discover, Saved News, and Settings" style="max-width: 100%;" /></a>
+<a><img src="https://github.com/Cengizhanerturan/kotlin_news_app_mvvm/blob/main/app/src/main/github-images/dark/home.png" alt="Home, Discover, Saved News and Search" style="max-width: 100%;" /></a>
 
 ### 3. News Detail Screen
 
