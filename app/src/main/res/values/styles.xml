@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Switch Style -->
+    <style name="CustomSwitchStyle" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="trackTint">@color/track_color_selector</item>
+        <item name="thumbTint">@color/thumb_color_selector</item>
+        <item name="borderWidth">0dp</item>
+        <item name="trackDecorationTint">@color/border</item>
+    </style>
+
+    <!-- Button Style -->
+    <style name="Widget.Material3.CustomButton" parent="Widget.Material3.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="backgroundTint">@null</item>
+    </style>
+
+    <!-- TextAppearance Start -->
+    <!-- Body Small Start-->
+    <style name="TextAppearance.Custom.BodySmall.Base" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.Custom.BodySmall.Light" parent="TextAppearance.Custom.BodySmall.Base">
+        <item name="fontFamily">@font/montserrat_light</item>
+    </style>
+
+    <style name="TextAppearance.Custom.BodySmall.Regular" parent="TextAppearance.Custom.BodySmall.Base">
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="TextAppearance.Custom.BodySmall.Medium" parent="TextAppearance.Custom.BodySmall.Base">
+        <item name="fontFamily">@font/montserrat_medium</item>
+    </style>
+
+    <style name="TextAppearance.Custom.BodySmall.SemiBold" parent="TextAppearance.Custom.BodySmall.Base">
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+
+    <style name="TextAppearance.Custom.BodySmall.Bold" parent="TextAppearance.Custom.BodySmall.Base">
+        <item name="fontFamily">@font/montserrat_bold</item>
+    </style>
+    <!-- Body Small End-->
+    <!-- Body Medium Start-->
+    <style name="TextAppearance.Custom.BodyMedium.Base" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.Custom.BodyMedium.Light" parent="TextAppearance.Custom.BodyMedium.Base">
+        <item name="fontFamily">@font/montserrat_light</item>
+    </style>
+
+    <style name="TextAppearance.Custom.BodyMedium.Regular" parent="TextAppearance.Custom.BodyMedium.Base">
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="TextAppearance.Custom.BodyMedium.Medium" parent="TextAppearance.Custom.BodyMedium.Base">
+        <item name="fontFamily">@font/montserrat_medium</item>
+    </style>
+
+    <style name="TextAppearance.Custom.BodyMedium.SemiBold" parent="TextAppearance.Custom.BodyMedium.Base">
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+
+    <style name="TextAppearance.Custom.BodyMedium.Bold" parent="TextAppearance.Custom.BodyMedium.Base">
+        <item name="fontFamily">@font/montserrat_bold</item>
+    </style>
+    <!-- Body Medium End-->
+    <!-- Body Large Start-->
+    <style name="TextAppearance.Custom.BodyLarge.Base" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.Custom.BodyLarge.Light" parent="TextAppearance.Custom.BodyLarge.Base">
+        <item name="fontFamily">@font/montserrat_light</item>
+    </style>
+
+    <style name="TextAppearance.Custom.BodyLarge.Regular" parent="TextAppearance.Custom.BodyLarge.Base">
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="TextAppearance.Custom.BodyLarge.Medium" parent="TextAppearance.Custom.BodyLarge.Base">
+        <item name="fontFamily">@font/montserrat_medium</item>
+    </style>
+
+    <style name="TextAppearance.Custom.BodyLarge.SemiBold" parent="TextAppearance.Custom.BodyLarge.Base">
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+
+    <style name="TextAppearance.Custom.BodyLarge.Bold" parent="TextAppearance.Custom.BodyLarge.Base">
+        <item name="fontFamily">@font/montserrat_bold</item>
+    </style>
+    <!-- Body Large End-->
+
+    <!-- Title Medium Start-->
+    <style name="TextAppearance.Custom.TitleMedium.Base" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.Custom.TitleMedium.Light" parent="TextAppearance.Custom.TitleMedium.Base">
+        <item name="fontFamily">@font/montserrat_light</item>
+    </style>
+
+    <style name="TextAppearance.Custom.TitleMedium.Regular" parent="TextAppearance.Custom.TitleMedium.Base">
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="TextAppearance.Custom.TitleMedium.Medium" parent="TextAppearance.Custom.TitleMedium.Base">
+        <item name="fontFamily">@font/montserrat_medium</item>
+    </style>
+
+    <style name="TextAppearance.Custom.TitleMedium.SemiBold" parent="TextAppearance.Custom.TitleMedium.Base">
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+
+    <style name="TextAppearance.Custom.TitleMedium.Bold" parent="TextAppearance.Custom.TitleMedium.Base">
+        <item name="fontFamily">@font/montserrat_bold</item>
+    </style>
+    <!-- Title Medium End-->
+    <!-- Title Large Start-->
+    <style name="TextAppearance.Custom.TitleLarge.Base" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextAppearance.Custom.TitleLarge.Light" parent="TextAppearance.Custom.TitleLarge.Base">
+        <item name="fontFamily">@font/montserrat_light</item>
+    </style>
+
+    <style name="TextAppearance.Custom.TitleLarge.Regular" parent="TextAppearance.Custom.TitleLarge.Base">
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="TextAppearance.Custom.TitleLarge.Medium" parent="TextAppearance.Custom.TitleLarge.Base">
+        <item name="fontFamily">@font/montserrat_medium</item>
+    </style>
+
+    <style name="TextAppearance.Custom.TitleLarge.SemiBold" parent="TextAppearance.Custom.TitleLarge.Base">
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+
+    <style name="TextAppearance.Custom.TitleLarge.Bold" parent="TextAppearance.Custom.TitleLarge.Base">
+        <item name="fontFamily">@font/montserrat_bold</item>
+    </style>
+    <!-- Title Large End-->
+
+    <!-- Headline Small Start-->
+    <style name="TextAppearance.Custom.HeadlineSmall.Base" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.Custom.HeadlineSmall.Light" parent="TextAppearance.Custom.HeadlineSmall.Base">
+        <item name="fontFamily">@font/montserrat_light</item>
+    </style>
+
+    <style name="TextAppearance.Custom.HeadlineSmall.Regular" parent="TextAppearance.Custom.HeadlineSmall.Base">
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="TextAppearance.Custom.HeadlineSmall.Medium" parent="TextAppearance.Custom.HeadlineSmall.Base">
+        <item name="fontFamily">@font/montserrat_medium</item>
+    </style>
+
+    <style name="TextAppearance.Custom.HeadlineSmall.SemiBold" parent="TextAppearance.Custom.HeadlineSmall.Base">
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+
+    <style name="TextAppearance.Custom.HeadlineSmall.Bold" parent="TextAppearance.Custom.HeadlineSmall.Base">
+        <item name="fontFamily">@font/montserrat_bold</item>
+    </style>
+    <!-- Headline Small End-->
+    <!-- Headline Medium Start-->
+    <style name="TextAppearance.Custom.HeadlineMedium.Base" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.Custom.HeadlineMedium.Light" parent="TextAppearance.Custom.HeadlineMedium.Base">
+        <item name="fontFamily">@font/montserrat_light</item>
+    </style>
+
+    <style name="TextAppearance.Custom.HeadlineMedium.Regular" parent="TextAppearance.Custom.HeadlineMedium.Base">
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="TextAppearance.Custom.HeadlineMedium.Medium" parent="TextAppearance.Custom.HeadlineMedium.Base">
+        <item name="fontFamily">@font/montserrat_medium</item>
+    </style>
+
+    <style name="TextAppearance.Custom.HeadlineMedium.SemiBold" parent="TextAppearance.Custom.HeadlineMedium.Base">
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+
+    <style name="TextAppearance.Custom.HeadlineMedium.Bold" parent="TextAppearance.Custom.HeadlineMedium.Base">
+        <item name="fontFamily">@font/montserrat_bold</item>
+    </style>
+    <!-- Headline Medium End-->
+    <!-- Headline Large Start-->
+    <style name="TextAppearance.Custom.HeadlineLarge.Base" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.Custom.HeadlineLarge.Light" parent="TextAppearance.Custom.HeadlineLarge.Base">
+        <item name="fontFamily">@font/montserrat_light</item>
+    </style>
+
+    <style name="TextAppearance.Custom.HeadlineLarge.Regular" parent="TextAppearance.Custom.HeadlineLarge.Base">
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="TextAppearance.Custom.HeadlineLarge.Medium" parent="TextAppearance.Custom.HeadlineLarge.Base">
+        <item name="fontFamily">@font/montserrat_medium</item>
+    </style>
+
+    <style name="TextAppearance.Custom.HeadlineLarge.SemiBold" parent="TextAppearance.Custom.HeadlineLarge.Base">
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+
+    <style name="TextAppearance.Custom.HeadlineLarge.Bold" parent="TextAppearance.Custom.HeadlineLarge.Base">
+        <item name="fontFamily">@font/montserrat_bold</item>
+    </style>
+    <!-- Headline Large End-->
+
+    <!-- TextAppearance End -->
+</resources>
