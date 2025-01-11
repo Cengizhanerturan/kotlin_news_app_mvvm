@@ -83,7 +83,9 @@ ile yazılmış bir mobil uygulamadır. Uygulama, kullanıcı deneyimini ve etki
 
 ## Uygulama Tanıtım Videosu (Youtube):
 
-[Uygulama tanıtım videosunu youtube'dan izle.](https://youtu.be/q55WRQbTF9o)
+<p>Kayıt, giriş, e-posta değiştirme, şifre değiştirme ve kullanıcı bilgileri değiştirme bölümleri, YouTube kurallarına uymadığı gerekçesiyle videodan çıkartılmıştır.</p>
+
+[Uygulama tanıtım videosunu youtube'dan izle.](https://youtube.com/shorts/6MVdNm9iYk0)
 
 ## Ekran Görüntüleri:
 
@@ -209,9 +211,10 @@ key features of the app:
  ./gradlew run
  ```
 
-## Application Demo Video (Youtube)::
+## Application Demo Video (Youtube):
+<p>The registration, login, email change, password change, and user information update sections have been removed from the video due to non-compliance with YouTube policies.</p>
 
-[Watch the application demo video on YouTube.](https://youtu.be/q55WRQbTF9o)
+[Watch the application demo video on YouTube.](https://youtube.com/shorts/6MVdNm9iYk0)
 
 ## Screenshots:
 
