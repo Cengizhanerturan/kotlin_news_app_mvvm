@@ -7,8 +7,7 @@ import com.cengizhanerturan.kotlinnewsapplication.core.util.Constants.THEME_PREF
 
 object ThemeManager {
     fun applyTheme(context: Context) {
-        //val isDarkMode = getThemePreference(context)
-        val isDarkMode = true
+        val isDarkMode = getThemePreference(context)
         setTheme(isDarkMode)
     }
 
