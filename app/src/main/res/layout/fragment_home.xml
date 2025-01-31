@@ -7,47 +7,42 @@
         android:id="@+id/pullToRefresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:shadowColor="@android:color/transparent">
+        android:shadowColor="@android:color/transparent"
+        tools:context=".presentation.view.home.HomeFragment">
 
-        <androidx.core.widget.NestedScrollView
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="none"
-            tools:context=".presentation.view.home.HomeFragment">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <include
+                android:id="@+id/homeTopBar"
+                layout="@layout/home_topbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp" />
 
-                <include
-                    android:id="@+id/homeTopBar"
-                    layout="@layout/home_topbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="10dp" />
+            <include
+                android:id="@+id/breakingNewsTitle"
+                layout="@layout/title_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:title="@{`Breaking News`}" />
 
-                <include
-                    android:id="@+id/breakingNewsTitle"
-                    layout="@layout/title_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:title="@{`Breaking News`}" />
+            <include
+                android:id="@+id/sliderLayout"
+                layout="@layout/slider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-                <include
-                    android:id="@+id/sliderLayout"
-                    layout="@layout/slider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <include
-                    android:id="@+id/recommendationLayout"
-                    layout="@layout/recommendation_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
+            <include
+                android:id="@+id/recommendationLayout"
+                layout="@layout/recommendation_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>

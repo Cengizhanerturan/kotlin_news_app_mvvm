@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
 import com.cengizhanerturan.kotlinnewsapplication.data.model.toNewsModelList
 import com.cengizhanerturan.kotlinnewsapplication.domain.model.NewsModel
 import com.cengizhanerturan.kotlinnewsapplication.domain.model.Resource
@@ -14,6 +15,7 @@ import com.cengizhanerturan.kotlinnewsapplication.core.util.Constants.SLIDER_ITE
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -26,13 +28,11 @@ class HomeViewModel @Inject constructor(
     val sliderNews: LiveData<Resource<List<NewsModel>>>
         get() = _sliderNews
 
-    private val _recommendationList: MutableLiveData<Resource<List<NewsModel>>> = MutableLiveData()
-    val recommendationList: LiveData<Resource<List<NewsModel>>>
-        get() = _recommendationList
+    var recommendationPagingFlow: Flow<PagingData<NewsModel>> =
+        newsRepository.getTopHeadlinesWithPaging().flow
 
     init {
         getSliderNews()
-        getRecommendationNews()
     }
 
     fun getUserNameSurname(): String {
@@ -45,10 +45,7 @@ class HomeViewModel @Inject constructor(
     suspend fun refreshData() {
         coroutineScope {
             val sliderNewsDeferred = async { handleSliderNews() }
-            val recommendationNewsDeferred = async { handleRecommendationNews() }
-
             sliderNewsDeferred.await()
-            recommendationNewsDeferred.await()
         }
     }
 
@@ -61,24 +58,13 @@ class HomeViewModel @Inject constructor(
     }
 
     private suspend fun handleSliderNews() {
-        _sliderNews.postValue(Resource.Loading())
-        val newsResponseList = newsRepository.getTopHeadlines(pageSize = SLIDER_ITEM_COUNT)
-        val newsModelList = newsResponseList.toNewsModelList()
-        _sliderNews.postValue(Resource.Success(data = newsModelList))
-    }
-
-    private fun getRecommendationNews() = viewModelScope.launch {
         try {
-            handleRecommendationNews()
+            _sliderNews.postValue(Resource.Loading())
+            val newsResponseList = newsRepository.getTopHeadlines(pageSize = SLIDER_ITEM_COUNT)
+            val newsModelList = newsResponseList.toNewsModelList()
+            _sliderNews.postValue(Resource.Success(data = newsModelList))
         } catch (e: Exception) {
-            _recommendationList.postValue(Resource.Error(message = e.localizedMessage ?: ERROR_MSG))
+            throw e
         }
-    }
-
-    private suspend fun handleRecommendationNews() {
-        _recommendationList.postValue(Resource.Loading())
-        val newsResponseList = newsRepository.getTopHeadlines()
-        val newsModelList = newsResponseList.toNewsModelList().drop(5)
-        _recommendationList.postValue(Resource.Success(data = newsModelList))
     }
 }

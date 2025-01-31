@@ -1,18 +1,23 @@
 package com.cengizhanerturan.kotlinnewsapplication.data.repository
 
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
 import com.cengizhanerturan.kotlinnewsapplication.data.model.NewsEntity
 import com.cengizhanerturan.kotlinnewsapplication.data.model.NewsResponse
 import com.cengizhanerturan.kotlinnewsapplication.data.source.locale.NewsDao
 import com.cengizhanerturan.kotlinnewsapplication.data.source.remote.ApiService
 import com.cengizhanerturan.kotlinnewsapplication.domain.repository.NewsRepository
 import com.cengizhanerturan.kotlinnewsapplication.core.util.Constants.ERROR_MSG
+import com.cengizhanerturan.kotlinnewsapplication.core.util.Constants.NEWS_COUNT
+import com.cengizhanerturan.kotlinnewsapplication.data.source.remote.NewsPagingSource
+import com.cengizhanerturan.kotlinnewsapplication.domain.model.NewsModel
 import javax.inject.Inject
 
 class NewsRepositoryImpl @Inject constructor(
     private val apiService: ApiService,
     private val newsDao: NewsDao
 ) : NewsRepository {
-    override suspend fun getTopHeadlines(category: String?, pageSize: Int?): NewsResponse {
+    override suspend fun getTopHeadlines(category: String?, pageSize: Int): NewsResponse {
         try {
             val response = apiService.getTopHeadlines(category = category, pageSize = pageSize)
             if (response.isSuccessful) {
@@ -25,6 +30,18 @@ class NewsRepositoryImpl @Inject constructor(
         } catch (e: Exception) {
             throw Exception(e.localizedMessage ?: ERROR_MSG)
         }
+    }
+
+    override fun getTopHeadlinesWithPaging(): Pager<Int, NewsModel> {
+        return Pager(
+            config = PagingConfig(
+                pageSize = NEWS_COUNT,
+                initialLoadSize = NEWS_COUNT,
+                prefetchDistance = 3,
+                enablePlaceholders = false
+            ),
+            pagingSourceFactory = { NewsPagingSource(apiService) }
+        )
     }
 
     override suspend fun getSearchNews(searchString: String): NewsResponse {

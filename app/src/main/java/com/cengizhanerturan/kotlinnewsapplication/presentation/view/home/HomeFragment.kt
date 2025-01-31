@@ -7,9 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.Navigation.findNavController
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager2.widget.ViewPager2
@@ -19,7 +23,8 @@ import com.cengizhanerturan.kotlinnewsapplication.databinding.FragmentHomeBindin
 import com.cengizhanerturan.kotlinnewsapplication.domain.model.NewsModel
 import com.cengizhanerturan.kotlinnewsapplication.domain.model.Resource
 import com.cengizhanerturan.kotlinnewsapplication.presentation.MainActivity
-import com.cengizhanerturan.kotlinnewsapplication.presentation.adapter.NewsAdapter
+import com.cengizhanerturan.kotlinnewsapplication.presentation.adapter.LoadMoreAdapter
+import com.cengizhanerturan.kotlinnewsapplication.presentation.adapter.NewsPagingDataAdapter
 import com.cengizhanerturan.kotlinnewsapplication.presentation.adapter.SliderAdapter
 import kotlinx.coroutines.launch
 
@@ -36,7 +41,7 @@ class HomeFragment : Fragment() {
     private lateinit var pageChangeListener: ViewPager2.OnPageChangeCallback
 
     //Recommendation
-    private lateinit var recommendationAdapter: NewsAdapter
+    private lateinit var recommendationPagingDataAdapter: NewsPagingDataAdapter
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -59,11 +64,40 @@ class HomeFragment : Fragment() {
         setNameSurname()
         setPullToRefresh()
         setupSlider(view)
-        setupRecommendationAdapter(view)
+        setupRecommendationPagingDataAdapter(view)
         searchButtonClicked(view)
         observeSliderNews()
-        observeRecommendationNews()
+        observeRecommendationPagingFlow()
         viewAllClicked()
+    }
+
+    private fun setupRecommendationPagingDataAdapter(view: View) {
+        recommendationPagingDataAdapter = NewsPagingDataAdapter()
+        binding.recommendationLayout.rvRecommendation.apply {
+            adapter = recommendationPagingDataAdapter.withLoadStateFooter(LoadMoreAdapter())
+            layoutManager = LinearLayoutManager(context)
+        }
+
+        recommendationPagingDataAdapter.setOnClick { newsModel ->
+            navigateToNewsDetail(view = view, newsModel = newsModel)
+        }
+
+        recommendationPagingDataAdapter.addLoadStateListener { loadState ->
+            binding.recommendationLayout.rvRecommendation.isVisible =
+                loadState.source.refresh is LoadState.NotLoading
+            binding.recommendationLayout.loadingContainer.isVisible =
+                loadState.source.refresh is LoadState.Loading
+        }
+    }
+
+    private fun observeRecommendationPagingFlow() {
+        lifecycleScope.launch {
+            viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.recommendationPagingFlow.collect { pagingData ->
+                    recommendationPagingDataAdapter.submitData(pagingData)
+                }
+            }
+        }
     }
 
     private fun setPullToRefresh() {
@@ -108,28 +142,6 @@ class HomeFragment : Fragment() {
         activity.binding.bottomNavigationView.selectedItemId = R.id.discoverFragment
     }
 
-    private fun observeRecommendationNews() =
-        viewModel.recommendationList.observe(viewLifecycleOwner) { resource ->
-            when (resource) {
-                is Resource.Success -> {
-                    recommendationAdapter.newsItemList = resource.data
-
-                    binding.recommendationLayout.rvRecommendation.visibility = View.VISIBLE
-                    binding.recommendationLayout.loadingContainer.visibility = View.GONE
-                }
-
-                is Resource.Loading -> {
-                    binding.recommendationLayout.loadingContainer.visibility = View.VISIBLE
-                    binding.recommendationLayout.rvRecommendation.visibility = View.GONE
-                }
-
-                is Resource.Error -> {
-                    binding.recommendationLayout.loadingContainer.visibility = View.VISIBLE
-                    binding.recommendationLayout.rvRecommendation.visibility = View.GONE
-                }
-            }
-        }
-
     private fun observeSliderNews() = viewModel.sliderNews.observe(viewLifecycleOwner) { resource ->
         when (resource) {
             is Resource.Success -> {
@@ -156,16 +168,6 @@ class HomeFragment : Fragment() {
         binding.homeTopBar.userNameSurname.text = viewModel.getUserNameSurname()
     }
 
-    private fun setupRecommendationAdapter(view: View) {
-        recommendationAdapter = NewsAdapter()
-        binding.recommendationLayout.rvRecommendation.apply {
-            adapter = recommendationAdapter
-            layoutManager = LinearLayoutManager(context)
-        }
-        recommendationAdapter.setOnClick { newsModel ->
-            navigateToNewsDetail(view = view, newsModel = newsModel)
-        }
-    }
 
     private fun navigateToNewsDetail(view: View, newsModel: NewsModel) {
         val action = HomeFragmentDirections.actionHomeFragmentToNewsDetailFragment(newsModel)

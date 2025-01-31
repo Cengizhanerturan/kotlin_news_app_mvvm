@@ -20,6 +20,7 @@ object Constants {
     const val BASE_URL = "https://newsapi.org/v2/"
     const val API_KEY = "97495f96cf464857a304730c57a29346"
     const val DEFAULT_COUNTRY = "us"
+    const val NEWS_COUNT = 30
     const val SLIDER_ITEM_COUNT = 5
 
     //details screen
