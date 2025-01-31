@@ -17,10 +17,10 @@ import javax.inject.Inject
 class DiscoverViewModel @Inject constructor(
     private val newsRepository: NewsRepository
 ) : ViewModel() {
-    private val _newsCache: MutableLiveData<Resource<Map<String, List<NewsModel>>>> =
+    private val _newsList: MutableLiveData<Resource<Map<String, List<NewsModel>>>> =
         MutableLiveData()
-    val newsCache: LiveData<Resource<Map<String, List<NewsModel>>>>
-        get() = _newsCache
+    val newsList: LiveData<Resource<Map<String, List<NewsModel>>>>
+        get() = _newsList
 
     val tabTitleList = arrayListOf(
         "All",
@@ -38,16 +38,16 @@ class DiscoverViewModel @Inject constructor(
 
     private fun getData() = viewModelScope.launch {
         try {
-            _newsCache.postValue(Resource.Loading())
+            _newsList.postValue(Resource.Loading())
             val tempNewsMap = mutableMapOf<String, List<NewsModel>>()
             tabTitleList.forEachIndexed { index, category ->
                 val newsResponse =
                     newsRepository.getTopHeadlines(category = if (index == 0) null else category)
                 tempNewsMap[category] = newsResponse.toNewsModelList()
             }
-            _newsCache.postValue(Resource.Success(data = tempNewsMap))
+            _newsList.postValue(Resource.Success(data = tempNewsMap))
         } catch (e: Exception) {
-            _newsCache.postValue(Resource.Error(e.localizedMessage ?: ERROR_MSG))
+            _newsList.postValue(Resource.Error(e.localizedMessage ?: ERROR_MSG))
         }
     }
 }

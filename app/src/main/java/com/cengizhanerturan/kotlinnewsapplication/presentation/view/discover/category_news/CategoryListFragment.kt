@@ -51,7 +51,7 @@ class CategoryListFragment(
     }
 
 
-    private fun observeData() = viewModel.newsCache.observe(viewLifecycleOwner) { resource ->
+    private fun observeData() = viewModel.newsList.observe(viewLifecycleOwner) { resource ->
         when (resource) {
             is Resource.Success -> {
                 val newsModelList = resource.data[category]
