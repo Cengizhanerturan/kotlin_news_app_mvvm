@@ -14,6 +14,7 @@ class CategoryFragmentStateAdapter(
     }
 
     override fun createFragment(position: Int): Fragment {
-        return CategoryListFragment()
+        val category = categories[position]
+        return CategoryListFragment(category = category)
     }
 }

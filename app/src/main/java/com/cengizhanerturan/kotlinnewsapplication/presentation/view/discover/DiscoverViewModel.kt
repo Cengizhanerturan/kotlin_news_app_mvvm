@@ -17,10 +17,10 @@ import javax.inject.Inject
 class DiscoverViewModel @Inject constructor(
     private val newsRepository: NewsRepository
 ) : ViewModel() {
-    private val _newsCache = mutableMapOf<String, List<NewsModel>>()
-    private val _newsList: MutableLiveData<Resource<List<NewsModel>>> = MutableLiveData()
-    val newsList: LiveData<Resource<List<NewsModel>>>
-        get() = _newsList
+    private val _newsCache: MutableLiveData<Resource<Map<String, List<NewsModel>>>> =
+        MutableLiveData()
+    val newsCache: LiveData<Resource<Map<String, List<NewsModel>>>>
+        get() = _newsCache
 
     val tabTitleList = arrayListOf(
         "All",
@@ -32,23 +32,22 @@ class DiscoverViewModel @Inject constructor(
         "Entertainment"
     )
 
-    fun getData(index: Int) = viewModelScope.launch {
+    init {
+        getData()
+    }
+
+    private fun getData() = viewModelScope.launch {
         try {
-            val category = tabTitleList[index].lowercase()
-            if (_newsCache.containsKey(category)) {
-                _newsCache[category]?.let { cachedNews ->
-                    _newsList.postValue(Resource.Success(data = cachedNews))
-                }
-            } else {
-                _newsList.postValue(Resource.Loading())
+            _newsCache.postValue(Resource.Loading())
+            val tempNewsMap = mutableMapOf<String, List<NewsModel>>()
+            tabTitleList.forEachIndexed { index, category ->
                 val newsResponse =
                     newsRepository.getTopHeadlines(category = if (index == 0) null else category)
-                _newsCache[category] = newsResponse.toNewsModelList()
-                _newsList.postValue(Resource.Success(data = newsResponse.toNewsModelList()))
+                tempNewsMap[category] = newsResponse.toNewsModelList()
             }
+            _newsCache.postValue(Resource.Success(data = tempNewsMap))
         } catch (e: Exception) {
-            _newsList.postValue(Resource.Error(e.localizedMessage ?: ERROR_MSG))
+            _newsCache.postValue(Resource.Error(e.localizedMessage ?: ERROR_MSG))
         }
-
     }
 }

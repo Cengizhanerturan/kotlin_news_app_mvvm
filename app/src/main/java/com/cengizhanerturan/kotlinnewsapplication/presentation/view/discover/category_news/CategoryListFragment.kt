@@ -16,21 +16,18 @@ import com.cengizhanerturan.kotlinnewsapplication.presentation.adapter.NewsAdapt
 import com.cengizhanerturan.kotlinnewsapplication.presentation.view.discover.DiscoverFragmentDirections
 import com.cengizhanerturan.kotlinnewsapplication.presentation.view.discover.DiscoverViewModel
 
-class CategoryListFragment() : Fragment() {
+class CategoryListFragment(
+    private val category: String
+) : Fragment() {
     private var _binding: FragmentCategoryListBinding? = null
 
     private val viewModel: DiscoverViewModel by activityViewModels()
 
     private lateinit var newsAdapter: NewsAdapter
 
-
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -54,10 +51,11 @@ class CategoryListFragment() : Fragment() {
     }
 
 
-    private fun observeData() = viewModel.newsList.observe(viewLifecycleOwner) { resource ->
+    private fun observeData() = viewModel.newsCache.observe(viewLifecycleOwner) { resource ->
         when (resource) {
             is Resource.Success -> {
-                newsAdapter.newsItemList = resource.data
+                val newsModelList = resource.data[category]
+                newsAdapter.newsItemList = newsModelList ?: listOf()
 
                 binding.rvNews.visibility = View.VISIBLE
                 binding.loadingContainer.visibility = View.GONE
