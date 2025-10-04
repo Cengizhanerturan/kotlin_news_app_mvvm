@@ -59,7 +59,7 @@ ile yazılmış bir mobil uygulamadır. Uygulama, kullanıcı deneyimini ve etki
 1. **Projeyi klonlayın**
 
  ```bash
- git clone https://github.com/kullaniciadi/news-app.git
+ git clone https://github.com/cengizhanerturan/kotlin_news_app_mvvm.git
  cd news-app
  ```
 
@@ -189,7 +189,7 @@ key features of the app:
 1. **Clone the project**
 
  ```bash
- git clone https://github.com/kullaniciadi/news-app.git
+ git clone https://github.com/cengizhanerturan/kotlin_news_app_mvvm.git
  cd news-app
  ```
 
